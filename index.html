@@ -42,7 +42,7 @@
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
       <!-- Uncomment the line below if you also wish to use an image logo -->
       <!-- <img src="assets/img/logo.png" alt=""> -->
-      <h1 class="sitename">Sivaramakrishnan</h1>
+      <h1 class="sitename">SSS</h1>
     </a>
 
     <div class="social-links text-center">
@@ -91,6 +91,7 @@
     <section id="hero" class="hero section dark-background">
 
       <!-- <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class=""> -->
+      <img src="assets/img/mybg_r.jpg" alt="" data-aos="fade-in" class="">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <h2>Sivaramakrishnan</h2>
@@ -116,7 +117,7 @@
 
         <div class="row gy-4 justify-content-center">
           <div class="col-lg-4">
-            <img src="assets/img/my-profile-img.jpg" class="img-fluid" alt="">
+            <!-- <img src="assets/img/my-profile-img.jpg" class="img-fluid" alt=""> -->
           </div>
           <div class="col-lg-8 content">
             <h2>UI/UX Designer &amp; Web Developer.</h2>
@@ -373,9 +374,10 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Portfolio</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-          consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
-          in iste officiis commodi quidem hic quas.</p>
+        <p>My portfolio showcases my creative journey, featuring Photoshop designs, website projects, and photography.
+          It also includes my project works, highlighting my skills, and a collection of treasured memory photos. Each
+          piece reflects my passion for design and innovation, capturing moments and ideas that define my artistic and
+          technical expertise.</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -773,7 +775,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>Feel free to reach out for collaborations, inquiries, or creative projects!</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -787,15 +789,15 @@
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
                   <h3>Address</h3>
-                  <p>A108 Adam Street, New York, NY 535022</p>
+                  <p>19, Sowrastra Ramasamy Kovil Street, Tirunelveli, 627002 </p>
                 </div>
               </div><!-- End Info Item -->
 
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
                 <i class="bi bi-telephone flex-shrink-0"></i>
                 <div>
-                  <h3>Call Us</h3>
-                  <p>+1 5589 55488 55</p>
+                  <h3>Call</h3>
+                  <p>+91 7708544891</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -803,7 +805,7 @@
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
                   <h3>Email Us</h3>
-                  <p>info@example.com</p>
+                  <p>srsrk0512@gmail.com</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -815,8 +817,13 @@
           </div>
 
           <div class="col-lg-7">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
-              data-aos-delay="200">
+            <!-- <form>
+              <input type="text" id="name" name="name" placeholder="Your Name" required>
+              <input type="email" id="email" name="email" placeholder="Your Email" required>
+              <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+              <button type="submit">Send</button>
+            </form> -->
+            <form id="contact-form" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
               <div class="row gy-4">
 
                 <div class="col-md-6">
@@ -891,8 +898,39 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    (function () {
+      emailjs.init("K5wrVQlzDwIopDqfq"); // Replace with your EmailJS User ID
+    })();
+
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      // Get form values
+      let formData = new FormData(this);
+      let formEntries = Object.fromEntries(formData.entries());
+
+      console.log("Form Data Submitted:", formEntries); // Log user input
+
+      emailjs.sendForm("service_mmtpqbs", "template_16mxgwn", this)
+        .then((response) => {
+          console.log("Message sent successfully!", response);
+          alert("Message Sent Successfully!");
+          event.target.reset(); // Clears the form
+        })
+        .catch((error) => {
+          console.error("Failed to send message:", error);
+          alert("Failed to send message: " + error);
+        });
+    });
+
+
+  </script>
 
 </body>
 
